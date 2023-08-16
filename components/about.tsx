@@ -20,10 +20,7 @@ export default function About() {
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
         Passionate{" "}
-        <span className="font-medium">
-          {" "}
-          Fullstack Eengineer(Frontend Heavy)
-        </span>{" "}
+        <span className="font-medium"> Fullstack Engineer(Frontend Heavy)</span>{" "}
         having a proven track record of delivering high-quality end-to-end
         projects. Good problem solver with an aptitude for finding innovative
         solutions to complex challenges and creating user-friendly applications
