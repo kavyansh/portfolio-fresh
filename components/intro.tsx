@@ -10,9 +10,55 @@ import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
+function calculateYearsDifference(startDate: Date, endDate: Date): string {
+  const monthsInYear = 12;
+
+  const yearsDifference = Math.floor(calculateYears(startDate, endDate));
+  const monthsDifference = calculateMonths(startDate, endDate);
+
+  let result = "";
+
+  if (yearsDifference > 0) {
+    result += `${yearsDifference} ${yearsDifference === 1 ? "year" : "years"}`;
+  }
+
+  if (monthsDifference > 0) {
+    if (result.length > 0) {
+      result += ` and ${monthsDifference} ${
+        monthsDifference === 1 ? "month" : "months"
+      }`;
+    } else {
+      result += `${monthsDifference} ${
+        monthsDifference === 1 ? "month" : "months"
+      }`;
+    }
+  }
+
+  return result.length > 0 ? result : "0 months";
+}
+
+function calculateYears(startDate: Date, endDate: Date): number {
+  const millisecondsInYear = 1000 * 60 * 60 * 24 * 365.25; // accounting for leap years
+  const diffInMilliseconds = endDate.getTime() - startDate.getTime();
+  return diffInMilliseconds / millisecondsInYear;
+}
+
+function calculateMonths(startDate: Date, endDate: Date): number {
+  const monthsInYear = 12;
+  const yearsDifference = Math.floor(calculateYears(startDate, endDate));
+  const remainingMonths = endDate.getMonth() - startDate.getMonth() + 12;
+  return remainingMonths % monthsInYear;
+}
+
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const experience = calculateYearsDifference(
+    new Date("2021-01-01"),
+    new Date(Date.now())
+  );
+
+  console.log(experience);
 
   return (
     <section
@@ -64,7 +110,7 @@ export default function Intro() {
       >
         <span className="font-bold">Hello, I'm Yash.</span> I'm a{" "}
         <span className="font-bold">frontend Engineer</span> with{" "}
-        <span className="font-bold">2.8 years</span> of experience. I enjoy
+        <span className="font-bold">{experience}</span> of experience. I enjoy
         building <span className="italic">sites & webapps</span>. My focus is{" "}
         <span className="underline">React.JS</span>.
       </motion.h1>
