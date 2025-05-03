@@ -59,7 +59,6 @@ export const experiencesData = [
   {
     title: "Member of Technical Staff - 1",
     location: "Exotel, Bengaluru, India",
-    isCurrentlyWorking: true,
     description: [
       "Developed an end to end  full stack Admin dashboard for phone number masking application with live call status, virtual numbers, settings, etc using ReactJS, Tailwind CSS, python FastAPI.",
       "Designed and implemented global remote state management using React Query with caching and live call data / status update.",
@@ -68,7 +67,21 @@ export const experiencesData = [
       "Performance optimization using memoization in React, Bundle size optimization using code splitting and lazy loading.",
     ],
     icon: React.createElement(FaReact),
-    date: "2022, January - present",
+    date: "2022, January - 2023, October",
+  },
+  {
+    title: "Software Engineer",
+    location: "Typeface, Hyderabad, India",
+    isCurrentlyWorking: true,
+    description: [
+      "Designed and implemented a PDF Q&A feature with real-time content streaming and citation highlighting using Adobe Embed PDF API and Server-Sent Events (SSE) in React with Typescript",
+      "Developed a browser extension for document interaction as a brand partner, utilizing the Plasmo React framework",
+      "Customized and extended EditorJS for enhanced PDF Q&A support, including PDF fetching and rendering within a modal UI",
+      "Built and integrated embedded web applications for seamless customer deployment and interaction",
+      "Improved frontend performance by 80% through React memoization, and optimized bundle size using code splitting and lazy loading",
+    ],
+    icon: React.createElement(FaReact),
+    date: "2023, October - Present",
   },
 ] as const;
 
